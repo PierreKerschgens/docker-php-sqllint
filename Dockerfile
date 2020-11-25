@@ -19,11 +19,11 @@ RUN apt-get update && \
 # install dependencies for php-sqllint
 RUN apt-get install -qy \
     php \
-    wget
+    curl
 
 # install php-sqllint
 RUN mkdir /opt/lint && \
-    wget https://github.com/cweiske/php-sqllint/releases/download/v0.2.3/php-sqllint-0.2.3.phar --output-document=/opt/lint/php-sqllint.phar && \
+    curl --location https://github.com/cweiske/php-sqllint/releases/download/v0.2.3/php-sqllint-0.2.3.phar --output /opt/lint/php-sqllint-curl.phar && \
     phar extract -f /opt/lint/php-sqllint.phar /opt/lint && \
     ln -s /opt/lint/bin/php-sqllint /usr/local/bin/php-sqllint && \
     chmod +x /usr/local/bin/php-sqllint
