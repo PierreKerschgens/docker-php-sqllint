@@ -1,4 +1,4 @@
-FROM circleci/php:cli-stretch
+FROM cimg/php:7.3.11
 USER root
 
 # Set env vars
